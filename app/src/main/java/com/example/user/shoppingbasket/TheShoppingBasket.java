@@ -17,6 +17,9 @@ public class TheShoppingBasket {
 
     }
 
+    public boolean customerHasLoyaltyCard(){
+        return this.customer.hasLoyaltyCard();
+    }
 
 
 }

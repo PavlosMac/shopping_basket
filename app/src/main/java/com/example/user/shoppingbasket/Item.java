@@ -28,4 +28,9 @@ public class Item {
     public float getPrice(){
         return this.price;
     }
+
+//    public static itemGenerator(String description, float price, boolean bogof){
+//        Item itemOnTheFly = new Item(description, price, bogof);
+//        return itemOnTheFly;
+//    }
 }
