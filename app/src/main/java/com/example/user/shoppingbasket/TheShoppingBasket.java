@@ -23,20 +23,25 @@ public class TheShoppingBasket implements Discountable {
         return this.customer.hasLoyaltyCard();
     }
 
+
     public void addItem(Item item){
         basket.add(item);
     }
+
 
     public int getTotalItems(){
         return basket.size();
     }
 
+
     public float getBasketSum(){
         for(Item basketItems : basket){
             total += basketItems.getPrice();
         }
+        checkForDiscount();
         return total;
     }
+
 
     public void removeItem(Item item){
         for(Item thingy : basket){
@@ -46,14 +51,11 @@ public class TheShoppingBasket implements Discountable {
         }
     }
 
-    public void checkBasketForDiscount(){
-        if(total >= 20.00f){
-            makeDiscount();
-        }
-    }
 
-    public void makeDiscount(){
-        total -= (total * 0.1f);
+    public void checkForDiscount(){
+        if(total >= 20.00f) {
+            total -= (total * 0.1f);
+        }
     }
 
 
