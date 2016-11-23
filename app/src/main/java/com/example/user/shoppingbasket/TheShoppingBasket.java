@@ -29,5 +29,13 @@ public class TheShoppingBasket {
         return basket.size();
     }
 
+    public void removeItem(Item item){
+        for(Item thingy : basket){
+            if(thingy.equals(item)){
+                basket.remove(thingy);
+            }
+        }
+    }
+
 
 }

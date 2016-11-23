@@ -50,4 +50,14 @@ public class TheShoppingBasketTest {
         shoppingBasket1.addItem(item1);
         assertEquals(1, shoppingBasket1.getTotalItems());
     }
+
+    @Test
+    public void canRemoveItemsFromBasket(){
+        shoppingBasket1.addItem(item1);
+        shoppingBasket1.addItem(item2);
+        shoppingBasket1.addItem(item3);
+        shoppingBasket1.addItem(item4);
+        shoppingBasket1.removeItem(item3);
+        assertEquals(3, shoppingBasket1.getTotalItems());
+    }
 }
