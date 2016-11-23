@@ -3,6 +3,7 @@ package com.example.user.shoppingbasket;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
 /**
@@ -13,7 +14,6 @@ public class TheShoppingBasketTest {
 
 
     private TheShoppingBasket shoppingBasket1;
-    private boolean loyaltyCard;
     Item item1;
     Item item2;
     Item item3;
@@ -25,7 +25,7 @@ public class TheShoppingBasketTest {
     @Before
     public void before(){
 
-        Customer customer1 = new Customer("James", loyaltyCard);
+        Customer customer1 = new Customer("James", true);
         shoppingBasket1 = new TheShoppingBasket(customer1);
         item1 = new Item("Jeans", 54.99f, true);
         item2 = new Item("jumper", 43.99f, false);
@@ -44,6 +44,10 @@ public class TheShoppingBasketTest {
         assertTrue(result);
 
     }
-
-
+//
+    @Test
+    public void canAddItemToBasket(){
+        shoppingBasket1.addItem(item1);
+        assertEquals(1, shoppingBasket1.getTotalItems());
+    }
 }

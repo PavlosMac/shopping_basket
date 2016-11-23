@@ -9,16 +9,24 @@ import java.util.ArrayList;
 public class TheShoppingBasket {
 
     Customer customer;
-    ArrayList<Item> items;
+    ArrayList<Item> basket;
 
-    public TheShoppingBasket(){
-        this.items = new ArrayList<Item>();
+    public TheShoppingBasket(Customer customer){
+        this.basket = new ArrayList<Item>();
         this.customer = customer;
 
     }
 
     public boolean customerHasLoyaltyCard(){
         return this.customer.hasLoyaltyCard();
+    }
+
+    public void addItem(Item item){
+        basket.add(item);
+    }
+
+    public int getTotalItems(){
+        return basket.size();
     }
 
 
