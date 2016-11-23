@@ -28,7 +28,7 @@ public class CustomerTest {
         assertEquals("Henry", name);
     }
 
-//  @Test
+  @Test
     public void testCustomerHasLoyaltyCard(){
         assertEquals(false, customer.hasLoyaltyCard());
     }
