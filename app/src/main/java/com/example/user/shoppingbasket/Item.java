@@ -20,4 +20,8 @@ public class Item {
     public String getDescription(){
         return this.description;
     }
+
+    public boolean getBogof(){
+        return this.bogof;
+    }
 }

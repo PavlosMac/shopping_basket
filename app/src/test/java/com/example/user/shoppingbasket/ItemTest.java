@@ -25,5 +25,10 @@ public class ItemTest {
         assertEquals("air", item1.getDescription());
     }
 
+    @Test
+    public void itemHasBogof(){
+        assertTrue(item1.getBogof());
+    }
+
 
 }
