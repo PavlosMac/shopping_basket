@@ -61,5 +61,8 @@ public class TheShoppingBasketTest {
         assertEquals(3, shoppingBasket1.getTotalItems());
     }
 
-
+    @Test
+    public void testCanMakeOverCertainSumDiscountOnBasket(){
+        assertEquals(178.173f, shoppingBasket1.getBasketSum());
+    }
 }
