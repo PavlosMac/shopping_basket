@@ -40,5 +40,11 @@ public class ItemTest {
         assertTrue(item1.toString() instanceof String);
     }
 
+    @Test
+    public void canSetPriceToZero(){
+        item1.setPriceZero();
+        assertEquals(0.0f, item1.getPrice());
+    }
+
 
 }

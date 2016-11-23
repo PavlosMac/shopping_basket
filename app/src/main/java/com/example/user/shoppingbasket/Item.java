@@ -29,7 +29,9 @@ public class Item implements Discountable{
         return this.price;
     }
 
-
+    public void setPriceZero(){
+        this.price = 0;
+    }
 
     public String toString(){
         String ifBogof = "";
@@ -47,7 +49,7 @@ public class Item implements Discountable{
 
     public void checkForDiscount(){
         if(getBogof()){
-            this.price = 0;
+            setPriceZero();
         }
     }
 

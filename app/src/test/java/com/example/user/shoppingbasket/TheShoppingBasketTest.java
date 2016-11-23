@@ -74,4 +74,11 @@ public class TheShoppingBasketTest {
         shoppingBasket1.loyaltyCardAdjustmentToBasket();
         assertEquals(174.60954f, shoppingBasket1.getBasketSum());
     }
+
+    @Test
+    public void testCustomerCanChooseFreeBogofItem(){
+        shoppingBasket1.addTwinOfBogofItemToBasket(item1);
+        assertEquals(7, shoppingBasket1.getTotalItems());
+        assertEquals(174.60954f, shoppingBasket1.getBasketSum());
+    }
 }
