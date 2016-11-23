@@ -5,5 +5,5 @@ package com.example.user.shoppingbasket;
  */
 
 public interface Discountable {
-    public void checkForDiscount();
+    public void makeDiscount();
 }

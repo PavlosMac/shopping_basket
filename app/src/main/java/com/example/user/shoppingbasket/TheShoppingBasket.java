@@ -1,6 +1,7 @@
 package com.example.user.shoppingbasket;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by user on 23/11/2016.
@@ -34,26 +35,28 @@ public class TheShoppingBasket implements Discountable {
     }
 
 
-    public float getBasketSum(){
+    public double getBasketSum(){
         for(Item basketItems : basket){
             total += basketItems.getPrice();
         }
-        checkForDiscount();
+        makeDiscount();
         loyaltyCardAdjustmentToBasket();
-        return total;
+        double roundedTotal = Math.round( total * 100.0 )/100.0;
+        return roundedTotal;
     }
 
 
     public void removeItem(Item item){
-        for(Item thingy : basket){
-            if(thingy.equals(item)){
-                basket.remove(thingy);
+        Iterator<Item> it = basket.iterator();
+        while(it.hasNext()){
+            if(it.next().equals(item)){
+                it.remove();
             }
         }
     }
 
 
-    public void checkForDiscount(){
+    public void makeDiscount(){
         if(total >= 20.00f) {
             total -= (total * 0.1f);
         }
@@ -69,8 +72,8 @@ public class TheShoppingBasket implements Discountable {
 
 
     public void addTwinOfBogofItemToBasket(Item item){
-        item.checkForDiscount();
-        basket.add(item);
+        Item replica = new Item(item.getDescription(), 0.0f, false);
+        basket.add(replica);
 
     }
 

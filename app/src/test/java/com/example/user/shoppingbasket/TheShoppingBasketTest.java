@@ -20,6 +20,7 @@ public class TheShoppingBasketTest {
     Item item4;
     Item item5;
     Item item6;
+    Item item7;
 
 
     @Before
@@ -31,13 +32,16 @@ public class TheShoppingBasketTest {
         item2 = new Item("jumper", 43.99f, false);
         item3 = new Item("FakeHair", 33.99f, true);
         item4 = new Item("Glasses", 20.00f, false);
-        item4 = new Item("Ginger beard", 33.00f, true);
-        item5 = new Item("string", 10.00f, false);
-        item6 = new Item("Muffins", 2.00f, false);
+        item5 = new Item("Ginger beard", 33.00f, true);
+        item6 = new Item("string", 10.00f, false);
+        item7 = new Item("Muffins", 2.00f, false);
         shoppingBasket1.addItem(item1);
         shoppingBasket1.addItem(item2);
         shoppingBasket1.addItem(item3);
         shoppingBasket1.addItem(item4);
+        shoppingBasket1.addItem(item5);
+        shoppingBasket1.addItem(item6);
+        shoppingBasket1.addItem(item7);
 
 
     }
@@ -52,33 +56,32 @@ public class TheShoppingBasketTest {
 
     @Test
     public void canAddItemToBasket(){
-        shoppingBasket1.addItem(item1);
-        assertEquals(1, shoppingBasket1.getTotalItems());
+        assertEquals(7, shoppingBasket1.getTotalItems());
     }
 
 
     @Test
     public void canRemoveItemsFromBasket(){
         shoppingBasket1.removeItem(item3);
-        assertEquals(3, shoppingBasket1.getTotalItems());
+        assertEquals(6, shoppingBasket1.getTotalItems());
     }
-
-
+//
+//
     @Test
     public void testCanMakeOverCertainSumDiscountOnBasket(){
-        assertEquals(178.173f, shoppingBasket1.getBasketSum());
+        assertEquals(174.61, shoppingBasket1.getBasketSum());
     }
-
+//
     @Test
     public void testShoppingBasketTotalAdjustedAfterLoyaltyCardCheck(){
         shoppingBasket1.loyaltyCardAdjustmentToBasket();
-        assertEquals(174.60954f, shoppingBasket1.getBasketSum());
+        assertEquals(174.61, shoppingBasket1.getBasketSum());
     }
 
     @Test
     public void testCustomerCanChooseFreeBogofItem(){
         shoppingBasket1.addTwinOfBogofItemToBasket(item1);
-        assertEquals(7, shoppingBasket1.getTotalItems());
-        assertEquals(174.60954f, shoppingBasket1.getBasketSum());
+        assertEquals(8, shoppingBasket1.getTotalItems());
+        assertEquals(174.61, shoppingBasket1.getBasketSum());
     }
 }

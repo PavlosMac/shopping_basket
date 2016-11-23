@@ -47,7 +47,7 @@ public class Item implements Discountable{
         return description;
     }
 
-    public void checkForDiscount(){
+    public void makeDiscount(){
         if(getBogof()){
             setPriceZero();
         }
