@@ -60,5 +60,12 @@ public class TheShoppingBasket implements Discountable {
 
 
 
+    public void loyaltyCardAdjustmentToBasket(){
+        getBasketSum();
+        if(customer.hasLoyaltyCard()){
+            total -= (total * 0.02f);
+        }
+    }
+
 
 }

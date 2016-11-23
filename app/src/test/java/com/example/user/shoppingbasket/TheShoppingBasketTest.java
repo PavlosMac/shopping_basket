@@ -49,11 +49,13 @@ public class TheShoppingBasketTest {
 
     }
 //
+
     @Test
     public void canAddItemToBasket(){
         shoppingBasket1.addItem(item1);
         assertEquals(1, shoppingBasket1.getTotalItems());
     }
+
 
     @Test
     public void canRemoveItemsFromBasket(){
@@ -61,8 +63,15 @@ public class TheShoppingBasketTest {
         assertEquals(3, shoppingBasket1.getTotalItems());
     }
 
+
     @Test
     public void testCanMakeOverCertainSumDiscountOnBasket(){
         assertEquals(178.173f, shoppingBasket1.getBasketSum());
+    }
+
+    @Test
+    public void testShoppingBasketTotalAdjustedAfterLoyaltyCardCheck(){
+        shoppingBasket1.loyaltyCardAdjustmentToBasket();
+        assertEquals(174.60954f, shoppingBasket1.getBasketSum());
     }
 }
