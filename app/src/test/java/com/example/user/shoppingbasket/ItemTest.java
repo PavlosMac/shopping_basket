@@ -30,5 +30,10 @@ public class ItemTest {
         assertTrue(item1.getBogof());
     }
 
+    @Test
+    public void itemHasPrice(){
+        assertEquals(33.00f, item1.getPrice());
+    }
+
 
 }

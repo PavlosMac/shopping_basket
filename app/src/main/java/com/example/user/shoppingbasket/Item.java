@@ -24,4 +24,8 @@ public class Item {
     public boolean getBogof(){
         return this.bogof;
     }
+
+    public float getPrice(){
+        return this.price;
+    }
 }
