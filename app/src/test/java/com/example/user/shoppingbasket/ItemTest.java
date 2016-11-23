@@ -35,5 +35,10 @@ public class ItemTest {
         assertEquals(33.00f, item1.getPrice());
     }
 
+    @Test
+    public void itemAsString(){
+        assertTrue(item1.toString() instanceof String);
+    }
+
 
 }

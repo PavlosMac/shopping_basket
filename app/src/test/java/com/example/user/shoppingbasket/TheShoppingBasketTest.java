@@ -34,6 +34,10 @@ public class TheShoppingBasketTest {
         item4 = new Item("Ginger beard", 33.00f, true);
         item5 = new Item("string", 10.00f, false);
         item6 = new Item("Muffins", 2.00f, false);
+        shoppingBasket1.addItem(item1);
+        shoppingBasket1.addItem(item2);
+        shoppingBasket1.addItem(item3);
+        shoppingBasket1.addItem(item4);
 
 
     }
@@ -53,11 +57,9 @@ public class TheShoppingBasketTest {
 
     @Test
     public void canRemoveItemsFromBasket(){
-        shoppingBasket1.addItem(item1);
-        shoppingBasket1.addItem(item2);
-        shoppingBasket1.addItem(item3);
-        shoppingBasket1.addItem(item4);
         shoppingBasket1.removeItem(item3);
         assertEquals(3, shoppingBasket1.getTotalItems());
     }
+
+
 }

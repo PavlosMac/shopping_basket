@@ -33,4 +33,18 @@ public class Item {
 //        Item itemOnTheFly = new Item(description, price, bogof);
 //        return itemOnTheFly;
 //    }
+
+    public String toString(){
+        String ifBogof = "";
+
+        if(getBogof()){
+            ifBogof = "BoGoF";
+        }
+        else {
+            ifBogof = "No BoGoF";
+        }
+
+        String description = String.format("%s, %f, %s", getDescription(),getPrice(), ifBogof);
+        return description;
+    }
 }
