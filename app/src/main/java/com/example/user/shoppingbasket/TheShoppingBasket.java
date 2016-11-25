@@ -50,10 +50,6 @@ public class TheShoppingBasket{
     }
 
 
-    public double getSum(){
-        double roundedTotal = Math.round( total * 100.0 )/100.0;
-        return roundedTotal;
-    }
 
 
     public void makeBasketSum(){
@@ -70,14 +66,6 @@ public class TheShoppingBasket{
             if(it.next().equals(item)){
                 it.remove();
             }
-        }
-    }
-
-
-
-    public void loyaltyCardAdjustmentToBasket(){
-        if(customer.hasLoyaltyCard()){
-            total -= (total * 0.02f);
         }
     }
 

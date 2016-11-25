@@ -34,6 +34,7 @@ public class Item {
     }
 
     public String toString(){
+
         String ifBogof = "";
 
         if(getBogof()){
@@ -46,11 +47,6 @@ public class Item {
         String description = String.format("%s, %f, %s", getDescription(),getPrice(), ifBogof);
         return description;
     }
-//
-//    public void makeDiscount(){
-//        if(getBogof()){
-//            setPriceZero();
-//        }
-//    }
 
-    }
+
+}
