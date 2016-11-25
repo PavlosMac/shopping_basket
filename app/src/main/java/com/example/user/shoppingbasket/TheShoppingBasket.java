@@ -56,7 +56,7 @@ public class TheShoppingBasket{
     }
 
 
-    public void getBasketSum(){
+    public void makeBasketSum(){
         for(Item basketItems : basket) {
             total += basketItems.getPrice();
         }
@@ -73,13 +73,6 @@ public class TheShoppingBasket{
         }
     }
 
-//
-//    public float makeDiscount(){
-//        if(total >= 20.00f) {
-//            total -= (total * 0.1f);
-//        }
-//    }
-
 
 
     public void loyaltyCardAdjustmentToBasket(){
@@ -95,21 +88,19 @@ public class TheShoppingBasket{
 
     }
 
+
     public void addDiscount(Discountable discount){
         discounts.add(discount);
     }
+
 
     public int getNumberOfDiscounts(){
         return discounts.size();
     }
 
-//    public List getDiscounts(){
-//        return this.discounts;
-//    }
-
 
     public void makeDiscounts(){
-        getBasketSum();
+        makeBasketSum();
         for(Discountable discount : discounts){
             total = discount.makeDiscount(total);
         }

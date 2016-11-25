@@ -66,24 +66,22 @@ public class TheShoppingBasketTest {
         assertEquals(6, shoppingBasket1.getTotalItems());
     }
 //
+
+    @Test
+    public void testCanBasketSum(){
+        shoppingBasket1.makeBasketSum();
+        assertEquals(197.97, shoppingBasket1.getTotal());
+    }
 //
-//    @Test
-//    public void testCanMakeOverCertainSumDiscountOnBasket(){
-//        assertEquals(174.61, shoppingBasket1.getBasketSum());
-//    }
-////
-//    @Test
-//    public void testShoppingBasketTotalAdjustedAfterLoyaltyCardCheck(){
-//        shoppingBasket1.loyaltyCardAdjustmentToBasket();
-//        assertEquals(174.61, shoppingBasket1.getBasketSum());
-//    }
 //
-//    @Test
-//    public void testCustomerCanChooseFreeBogofItem(){
-//        shoppingBasket1.addTwinOfBogofItemToBasket(item1);
-//        assertEquals(8, shoppingBasket1.getTotalItems());
-//        assertEquals(174.61, shoppingBasket1.getBasketSum());
-//    }
+//
+    @Test
+    public void testCustomerCanChooseFreeBogofItem(){
+        shoppingBasket1.addTwinOfBogofItemToBasket(item1);
+        shoppingBasket1.makeBasketSum();
+        assertEquals(8, shoppingBasket1.getTotalItems());
+        assertEquals(197.97, shoppingBasket1.getTotal());
+    }
 
 
     @Test
@@ -104,9 +102,9 @@ public class TheShoppingBasketTest {
 
     @Test
     public void testBasketCanMakeLoyaltyDicount(){
-        CustomerLoyaltyDiscount discount = new CustomerLoyaltyDiscount("Loyaty Card Discount");
-        shoppingBasket1.addDiscount(discount);
+        CustomerLoyaltyDiscount loyaltyDiscount = new CustomerLoyaltyDiscount("Loyaty Card Discount");
+        shoppingBasket1.addDiscount(loyaltyDiscount);
         shoppingBasket1.makeDiscounts();
-        assertEquals(194.0106f, shoppingBasket1.getTotal());
+        assertEquals(194.01, shoppingBasket1.getTotal());
     }
 }
