@@ -2,27 +2,34 @@ package com.example.user.shoppingbasket;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by user on 23/11/2016.
  */
 
-public class TheShoppingBasket implements Discountable {
+public class TheShoppingBasket{
 
-    Customer customer;
-    ArrayList<Item> basket;
-    float total;
+    private Customer customer;
+    private ArrayList<Item> basket;
+    private ArrayList<Discountable> discounts;
+    private float total;
+
+
 
     public TheShoppingBasket(Customer customer){
         this.basket = new ArrayList<Item>();
         this.customer = customer;
         this.total = 0;
+        this.discounts = new ArrayList<Discountable>();
 
     }
+
 
     public boolean customerHasLoyaltyCard(){
         return this.customer.hasLoyaltyCard();
     }
+
 
 
     public void addItem(Item item){
@@ -30,19 +37,30 @@ public class TheShoppingBasket implements Discountable {
     }
 
 
+
+    public double getTotal(){
+        double roundedTotal = Math.round( total * 100.0 )/100.0;
+        return roundedTotal;
+    }
+
+
+
     public int getTotalItems(){
         return basket.size();
     }
 
 
-    public double getBasketSum(){
-        for(Item basketItems : basket){
-            total += basketItems.getPrice();
-        }
-        makeDiscount();
-        loyaltyCardAdjustmentToBasket();
+    public double getSum(){
         double roundedTotal = Math.round( total * 100.0 )/100.0;
         return roundedTotal;
+    }
+
+
+    public void getBasketSum(){
+        for(Item basketItems : basket) {
+            total += basketItems.getPrice();
+        }
+
     }
 
 
@@ -55,12 +73,12 @@ public class TheShoppingBasket implements Discountable {
         }
     }
 
-
-    public void makeDiscount(){
-        if(total >= 20.00f) {
-            total -= (total * 0.1f);
-        }
-    }
+//
+//    public float makeDiscount(){
+//        if(total >= 20.00f) {
+//            total -= (total * 0.1f);
+//        }
+//    }
 
 
 
@@ -76,6 +94,29 @@ public class TheShoppingBasket implements Discountable {
         basket.add(replica);
 
     }
+
+    public void addDiscount(Discountable discount){
+        discounts.add(discount);
+    }
+
+    public int getNumberOfDiscounts(){
+        return discounts.size();
+    }
+
+//    public List getDiscounts(){
+//        return this.discounts;
+//    }
+
+
+    public void makeDiscounts(){
+        getBasketSum();
+        for(Discountable discount : discounts){
+            total = discount.makeDiscount(total);
+        }
+    }
+
+
+
 
 
 }

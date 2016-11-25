@@ -4,7 +4,7 @@ package com.example.user.shoppingbasket;
  * Created by user on 23/11/2016.
  */
 
-public class Item implements Discountable{
+public class Item {
 
     String description;
     float price;
@@ -46,11 +46,11 @@ public class Item implements Discountable{
         String description = String.format("%s, %f, %s", getDescription(),getPrice(), ifBogof);
         return description;
     }
+//
+//    public void makeDiscount(){
+//        if(getBogof()){
+//            setPriceZero();
+//        }
+//    }
 
-    public void makeDiscount(){
-        if(getBogof()){
-            setPriceZero();
-        }
     }
-
-}
